@@ -1,0 +1,21 @@
+package com.contamov.util;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+/**
+ * @author abner
+ */
+public class DateUtil {
+  
+  public static java.util.Date getDate(String data) {
+    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+    try {
+      return format.parse(data);
+    } catch (ParseException e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+  
+}
