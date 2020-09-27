@@ -14,9 +14,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor // JPA Only
 public class Conta extends AbstractEntity implements Serializable {
   

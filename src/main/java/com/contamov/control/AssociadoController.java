@@ -39,8 +39,8 @@ public class AssociadoController {
   
   @PostMapping
   public ResponseEntity<?> save(@RequestBody AssociadoDTO dto) {
-    Associado associado = associadoService.salvar(dto.transformaParaObjeto());
-    return new ResponseEntity<>(AssociadoResponseDTO.transformaEmDTO(associado), HttpStatus.CREATED);
+    AssociadoResponseDTO associado = associadoService.salvar(dto);
+    return new ResponseEntity<>(associado, associado.getStatus());
   }
   
   @DeleteMapping(path = "/{id}")
@@ -52,8 +52,8 @@ public class AssociadoController {
   
   @PutMapping
   public ResponseEntity<?> update(@RequestBody AssociadoDTO dto) {
-    Associado associado = associadoService.salvar(dto.transformaParaObjeto());
-    return new ResponseEntity<>(AssociadoResponseDTO.transformaEmDTO(associado), HttpStatus.CREATED);
+    AssociadoResponseDTO associado = associadoService.atualizar(dto.transformaParaObjetoComID());
+    return new ResponseEntity<>(associado, associado.getStatus());
   }
   
   @GetMapping(path = "/{id}")

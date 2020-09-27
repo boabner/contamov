@@ -53,8 +53,8 @@ public class MovimentacaoConta extends AbstractEntity implements Serializable {
   public MovimentacaoConta(Conta conta, Character tipoOperacao, BigDecimal valorMovimentacao, Date dataMovimentacao) {
     this.conta = conta;
     this.tipoOperacao = tipoOperacao;
-    this.valorMovimentacao = valorMovimentacao;
     this.dataMovimentacao = dataMovimentacao;
+    this.valorMovimentacao = valorMovimentacao;
   }
   
 }

@@ -3,21 +3,22 @@
  */
 package com.contamov.service.dto;
 
-import com.contamov.model.Conta;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.http.HttpStatus;
 
+@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
+@Setter
 public class ContaResponseDTO {
-
-  private final Long id;
-  private final String numeroAgencia;
-  private final String numeroConta;
-
-  public static ContaResponseDTO transformaEmDTO(Conta conta) {
-    return new ContaResponseDTO(conta.getId(), conta.getNumeroAgencia(), conta.getNumeroConta());
-  }
+  
+  private String numeroAgencia;
+  private String numeroConta;
+  private String message;
+  private HttpStatus status;
 
 }

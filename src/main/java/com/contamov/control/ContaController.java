@@ -39,8 +39,8 @@ public class ContaController {
   
   @PostMapping
   public ResponseEntity<?> save(@RequestBody ContaDTO dto) {
-    Conta conta = contaService.salvar(dto.transformaParaObjeto());
-    return new ResponseEntity<>(ContaResponseDTO.transformaEmDTO(conta), HttpStatus.CREATED);
+    ContaResponseDTO conta = contaService.salvar(dto.transformaParaObjeto());
+    return new ResponseEntity<>(conta, conta.getStatus());
   }
   
   @DeleteMapping(path = "/{id}")
@@ -52,8 +52,8 @@ public class ContaController {
   
   @PutMapping
   public ResponseEntity<?> update(@RequestBody ContaDTO dto) {
-    Conta conta = contaService.salvar(dto.transformaParaObjeto());
-    return new ResponseEntity<>(ContaResponseDTO.transformaEmDTO(conta), HttpStatus.CREATED);
+    ContaResponseDTO conta = contaService.atualizar(dto.transformaParaObjeto());
+    return new ResponseEntity<>(conta, conta.getStatus());
   }
   
   @GetMapping(path = "/{id}")

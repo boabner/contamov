@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 public class DateUtil {
   
   public static java.util.Date getDate(String data) {
-    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     try {
       return format.parse(data);
     } catch (ParseException e) {

@@ -3,27 +3,26 @@
  */
 package com.contamov.service.dto;
 
-import com.contamov.model.Conta;
-import com.contamov.model.MovimentacaoConta;
-import java.math.BigDecimal;
-import java.util.Date;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+import lombok.Getter; 
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.http.HttpStatus;
+ 
 @Getter
+@Setter
+@NoArgsConstructor
 public class MovimentacaoContaResponseDTO {
 
-  private final Long id;
-  private final Conta conta;
-  private final Character tipoOperacao;
-  private final BigDecimal valorMovimentacao;
-  private final Date dataMovimentacao;
-
-  public static MovimentacaoContaResponseDTO transformaEmDTO(MovimentacaoConta associado) {
-    return new MovimentacaoContaResponseDTO(associado.getId(), associado.getConta(), associado.getTipoOperacao(),
-      associado.getValorMovimentacao(), associado.getDataMovimentacao());
+  private String nomeArquivo;
+  private String messageErro;
+  private String messageSuccess;
+  private HttpStatus status;
+  //
+  public MovimentacaoContaResponseDTO(String nomeArquivo, String messageErro, String messageSuccess, HttpStatus status) {
+    this.messageErro = messageErro;
+    this.status = status;
+    this.messageSuccess = messageSuccess;
+    this.nomeArquivo = nomeArquivo;
   }
-
+  
 }

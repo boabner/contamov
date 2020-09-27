@@ -3,21 +3,22 @@
  */
 package com.contamov.service.dto;
 
-import com.contamov.model.Associado;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.http.HttpStatus;
 
+@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
+@Setter
 public class AssociadoResponseDTO {
 
-  private final Long id;
-  private final String nome;
-  private final String cnpjCpf;
-
-  public static AssociadoResponseDTO transformaEmDTO(Associado associado) {
-    return new AssociadoResponseDTO(associado.getId(), associado.getNome(), associado.getCnpjCpf());
-  }
+  private String nome;
+  private String cnpjCpf;
+  private String message;
+  private HttpStatus status;
 
 }
